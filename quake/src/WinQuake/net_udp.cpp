@@ -95,7 +95,7 @@ int ifc_get_info(const char *name, in_addr_t *addr, in_addr_t *mask, unsigned *f
     ifc_init_ifr(name, &ifr);
 
     if (addr != NULL) {
-        if(ioctl(ifc_ctl_sock, SIOCGIFADDR, &ifr) < 0) {
+        if(1 || ioctl(ifc_ctl_sock, SIOCGIFADDR, &ifr) < 0) {
             *addr = 0;
         } else {
             *addr = ((struct sockaddr_in*) (void*) &ifr.ifr_addr)->sin_addr.s_addr;

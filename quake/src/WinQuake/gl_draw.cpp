@@ -107,7 +107,7 @@ int			numgltextures;
 // a file on the sd card. It is recreated each time the game is run. We
 // don't bother deleting it.
 
-#define USE_TEXTURE_STORE
+//#define USE_TEXTURE_STORE
 
 #ifdef USE_TEXTURE_STORE
 
@@ -2106,7 +2106,9 @@ extern void R_ReloadSky();
 
 void GL_ReInit() {
   GL_Init();
+#ifdef USE_TEXTURE_STORE
   textureStore::get()->rebindAll();
+#endif
   scrap_dirty = true;
   R_InitParticleTexture2();
   GL_UploadLightmaps();

@@ -41,13 +41,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <errno.h>
 #include <dirent.h>
 
+#include "IwGL.h"
+#include "IwDebug.h"
+#include "s3eSurface.h"
+
 #ifdef ANDROID_NDK
 #define LOG_TAG "sys_android"
 #include <android/log.h>
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #else
-#include <utils/Log.h>
+#define LOGI(...) IwTrace(DEFAULT, (__VA_ARGS__))
 #endif
+
 #include "quakedef.h"
 
 qboolean			isDedicated;
@@ -58,8 +63,8 @@ int nostdout = 0;
 // Look for data on either the sdcard or the internal data store.
 // (We look at the sdcard first
 
-static const char *basedir1 = "/sdcard/data/quake";
-static const char *basedir2 = "/data/quake";
+static const char *basedir1 = "/";
+static const char *basedir2 = "/";
 
 static const char *cachedir = "/tmp";
 
@@ -120,7 +125,9 @@ void Sys_Printf (char *fmt, ...)
 }
 */
 
+#if 0
 #define USE_PMPEVENT
+#endif
 
 void Sys_Printf (const char *fmt, ...)
 {
@@ -185,6 +192,7 @@ void Sys_Error (const char *error, ...)
 #ifdef USE_PMPEVENT
   PMPERROR(("Error: %s\n", string));
 #else
+  IwError(("%s", string));
   fprintf(stderr, "Error: %s\n", string);
 #endif
   Host_Shutdown ();
@@ -656,4 +664,17 @@ void AndroidQuit() {
   soft_quit = true;
   Host_Quit();
   soft_quit = false; // In case we live on after returning.
+}
+
+int main(int argc, char **argv)
+{
+	IwGLInit();
+        AndroidInit();
+        while (!s3eDeviceCheckQuitRequest())
+        {
+                AndroidStep(IwGLGetInt(IW_GL_WIDTH), IwGLGetInt(IW_GL_HEIGHT));
+                s3eDeviceYield(0);
+                IwGLSwapBuffers();
+        }
+        AndroidQuit();
 }

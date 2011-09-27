@@ -15,3 +15,10 @@
 #
 # Some conditional operations are also permitted, see the
 # S3E documentation for details.
+
+[s3e]
+Memsize=200000000
+SysStackSize=128000
+
+[GL]
+AllowTextureAllocInBind=1

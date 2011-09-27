@@ -51,3 +51,6 @@ files {
   quake/src/WinQuake/world.cpp
   quake/src/WinQuake/zone.cpp
 }
+
+subproject iwutil
+subproject iwgx
