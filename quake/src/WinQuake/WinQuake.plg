@@ -1,0 +1,650 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: gas2masm - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP3D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /Fp".\Debug/gas2masm.pch" /YX /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\daves\quake\glesquake\quake\src\WinQuake\gas2masm\gas2masm.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP3D.tmp" 
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP3E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:".\Debug/gas2masm.pdb" /debug /machine:I386 /out:".\Debug/gas2masm.exe" 
+.\Debug\gas2masm.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP3E.tmp"
+<h3>Output Window</h3>
+Compiling...
+gas2masm.c
+Linking...
+<h3>
+--------------------Configuration: winquake - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP40.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\worlda.spp .\worlda.s
+gas2masm\debug\gas2masm < .\Debug\worlda.spp >                                                                                                                                                                                                    .\Debug\worlda.asm
+ml /c /Cp /coff /Fo.\Debug\worlda.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\worlda.asm
+del .\Debug\worlda.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP40.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP41.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\sys_wina.spp .\sys_wina.s
+gas2masm\debug\gas2masm < .\Debug\sys_wina.spp >                                                                                                                                                                                                    .\Debug\sys_wina.asm
+ml /c /Cp /coff /Fo.\Debug\sys_wina.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\sys_wina.asm
+del .\Debug\sys_wina.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP41.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP43.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\surf8.spp .\surf8.s
+gas2masm\debug\gas2masm < .\Debug\surf8.spp >                                                                                                                                                                                                    .\Debug\surf8.asm
+ml /c /Cp /coff /Fo.\Debug\surf8.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\surf8.asm
+del .\Debug\surf8.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP43.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP44.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\surf16.spp .\surf16.s
+gas2masm\debug\gas2masm < .\Debug\surf16.spp >                                                                                                                                                                                                    .\Debug\surf16.asm
+ml /c /Cp /coff /Fo.\Debug\surf16.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\surf16.asm
+del .\Debug\surf16.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP44.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP45.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\snd_mixa.spp .\snd_mixa.s
+gas2masm\debug\gas2masm < .\Debug\snd_mixa.spp >                                                                                                                                                                                                    .\Debug\snd_mixa.asm
+ml /c /Cp /coff /Fo.\Debug\snd_mixa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\snd_mixa.asm
+del .\Debug\snd_mixa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP45.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP46.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\r_varsa.spp .\r_varsa.s
+gas2masm\debug\gas2masm < .\Debug\r_varsa.spp >                                                                                                                                                                                                    .\Debug\r_varsa.asm
+ml /c /Cp /coff /Fo.\Debug\r_varsa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\r_varsa.asm
+del .\Debug\r_varsa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP46.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP47.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\r_edgea.spp .\r_edgea.s
+gas2masm\debug\gas2masm < .\Debug\r_edgea.spp >                                                                                                                                                                                                    .\Debug\r_edgea.asm
+ml /c /Cp /coff /Fo.\Debug\r_edgea.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\r_edgea.asm
+del .\Debug\r_edgea.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP47.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP48.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\r_drawa.spp .\r_drawa.s
+gas2masm\debug\gas2masm < .\Debug\r_drawa.spp >                                                                                                                                                                                                    .\Debug\r_drawa.asm
+ml /c /Cp /coff /Fo.\Debug\r_drawa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\r_drawa.asm
+del .\Debug\r_drawa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP48.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP49.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\r_aliasa.spp .\r_aliasa.s
+gas2masm\debug\gas2masm < .\Debug\r_aliasa.spp >                                                                                                                                                                                                    .\Debug\r_aliasa.asm
+ml /c /Cp /coff /Fo.\Debug\r_aliasa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\r_aliasa.asm
+del .\Debug\r_aliasa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP49.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4A.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\r_aclipa.spp .\r_aclipa.s
+gas2masm\debug\gas2masm < .\Debug\r_aclipa.spp >                                                                                                                                                                                                    .\Debug\r_aclipa.asm
+ml /c /Cp /coff /Fo.\Debug\r_aclipa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\r_aclipa.asm
+del .\Debug\r_aclipa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4A.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4B.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\math.spp .\math.s
+gas2masm\debug\gas2masm < .\Debug\math.spp >                                                                                                                                                                                                    .\Debug\math.asm
+ml /c /Cp /coff /Fo.\Debug\math.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\math.asm
+del .\Debug\math.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4B.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4C.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_varsa.spp .\d_varsa.s
+gas2masm\debug\gas2masm < .\Debug\d_varsa.spp >                                                                                                                                                                                                    .\Debug\d_varsa.asm
+ml /c /Cp /coff /Fo.\Debug\d_varsa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_varsa.asm
+del .\Debug\d_varsa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4C.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4D.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_spr8.spp .\d_spr8.s
+gas2masm\debug\gas2masm < .\Debug\d_spr8.spp >                                                                                                                                                                                                    .\Debug\d_spr8.asm
+ml /c /Cp /coff /Fo.\Debug\d_spr8.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_spr8.asm
+del .\Debug\d_spr8.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4D.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4E.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_scana.spp .\d_scana.s
+gas2masm\debug\gas2masm < .\Debug\d_scana.spp >                                                                                                                                                                                                    .\Debug\d_scana.asm
+ml /c /Cp /coff /Fo.\Debug\d_scana.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_scana.asm
+del .\Debug\d_scana.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4E.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4F.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_polysa.spp .\d_polysa.s
+gas2masm\debug\gas2masm < .\Debug\d_polysa.spp >                                                                                                                                                                                                    .\Debug\d_polysa.asm
+ml /c /Cp /coff /Fo.\Debug\d_polysa.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_polysa.asm
+del .\Debug\d_polysa.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP4F.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP50.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_parta.spp .\d_parta.s
+gas2masm\debug\gas2masm < .\Debug\d_parta.spp >                                                                                                                                                                                                    .\Debug\d_parta.asm
+ml /c /Cp /coff /Fo.\Debug\d_parta.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_parta.asm
+del .\Debug\d_parta.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP50.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP51.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_draw16.spp .\d_draw16.s
+gas2masm\debug\gas2masm < .\Debug\d_draw16.spp >                                                                                                                                                                                                    .\Debug\d_draw16.asm
+ml /c /Cp /coff /Fo.\Debug\d_draw16.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_draw16.asm
+del .\Debug\d_draw16.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP51.bat"
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP52.bat" with contents
+[
+@echo off
+cl /EP > .\Debug\d_draw.spp .\d_draw.s
+gas2masm\debug\gas2masm < .\Debug\d_draw.spp >                                                                                                                                                                                                    .\Debug\d_draw.asm
+ml /c /Cp /coff /Fo.\Debug\d_draw.obj /Zm /Zi                                                                                                                                                                                                    .\Debug\d_draw.asm
+del .\Debug\d_draw.spp
+]
+Creating command line "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP52.bat"
+Creating command line "rc.exe /l 0x409 /fo".\Debug/winquake.res" /d "_DEBUG" "C:\daves\quake\glesquake\quake\src\WinQuake\winquake.rc"" 
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+worlda.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+sys_wina.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+surf8.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+surf16.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+snd_mixa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+r_varsa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+r_edgea.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+r_drawa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+r_aliasa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+r_aclipa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+math.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_varsa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_spr8.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_scana.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_polysa.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_parta.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_draw16.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+mycoolbuild
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+d_draw.s
+'ml' is not recognized as an internal or external command,
+operable program or batch file.
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP53.tmp" with contents
+[
+/nologo /G5 /ML /GX /ZI /Od /I ".\scitech\include" /I ".\dxsdk\sdk\inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR".\Debug/" /Fp".\Debug/WinQuake.pch" /YX /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\daves\quake\glesquake\quake\src\WinQuake\cd_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\chase.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cl_demo.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cl_input.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cl_main.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cl_parse.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cl_tent.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cmd.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\common.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\conproc.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\console.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\crc.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\cvar.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_edge.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_fill.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_init.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_modech.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_part.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_polyse.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_scan.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_sky.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_sprite.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_surf.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_vars.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\d_zpoint.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\draw.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\host.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\host_cmd.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\in_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\keys.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\mathlib.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\menu.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\model.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_dgrm.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_loop.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_main.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_vcr.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_wins.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\net_wipx.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\pr_cmds.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\pr_edict.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\pr_exec.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_aclip.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_alias.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_bsp.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_draw.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_edge.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_efrag.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_light.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_main.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_misc.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_part.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_sky.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_sprite.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_surf.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\r_vars.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sbar.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\screen.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\snd_dma.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\snd_mem.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\snd_mix.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\snd_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sv_main.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sv_move.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sv_phys.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sv_user.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\sys_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\vid_win.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\view.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\wad.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\world.c"
+"C:\daves\quake\glesquake\quake\src\WinQuake\zone.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP53.tmp" 
+Creating temporary file "C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP54.tmp" with contents
+[
+.\dxsdk\sdk\lib\dxguid.lib .\scitech\lib\win32\vc\mgllt.lib winmm.lib wsock32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:".\Debug/WinQuake.pdb" /debug /machine:I386 /out:".\Debug/WinQuake.exe" 
+.\Debug\cd_win.obj
+.\Debug\chase.obj
+.\Debug\cl_demo.obj
+.\Debug\cl_input.obj
+.\Debug\cl_main.obj
+.\Debug\cl_parse.obj
+.\Debug\cl_tent.obj
+.\Debug\cmd.obj
+.\Debug\common.obj
+.\Debug\conproc.obj
+.\Debug\console.obj
+.\Debug\crc.obj
+.\Debug\cvar.obj
+.\Debug\d_edge.obj
+.\Debug\d_fill.obj
+.\Debug\d_init.obj
+.\Debug\d_modech.obj
+.\Debug\d_part.obj
+.\Debug\d_polyse.obj
+.\Debug\d_scan.obj
+.\Debug\d_sky.obj
+.\Debug\d_sprite.obj
+.\Debug\d_surf.obj
+.\Debug\d_vars.obj
+.\Debug\d_zpoint.obj
+.\Debug\draw.obj
+.\Debug\host.obj
+.\Debug\host_cmd.obj
+.\Debug\in_win.obj
+.\Debug\keys.obj
+.\Debug\mathlib.obj
+.\Debug\menu.obj
+.\Debug\model.obj
+.\Debug\net_dgrm.obj
+.\Debug\net_loop.obj
+.\Debug\net_main.obj
+.\Debug\net_vcr.obj
+.\Debug\net_win.obj
+.\Debug\net_wins.obj
+.\Debug\net_wipx.obj
+.\Debug\pr_cmds.obj
+.\Debug\pr_edict.obj
+.\Debug\pr_exec.obj
+.\Debug\r_aclip.obj
+.\Debug\r_alias.obj
+.\Debug\r_bsp.obj
+.\Debug\r_draw.obj
+.\Debug\r_edge.obj
+.\Debug\r_efrag.obj
+.\Debug\r_light.obj
+.\Debug\r_main.obj
+.\Debug\r_misc.obj
+.\Debug\r_part.obj
+.\Debug\r_sky.obj
+.\Debug\r_sprite.obj
+.\Debug\r_surf.obj
+.\Debug\r_vars.obj
+.\Debug\sbar.obj
+.\Debug\screen.obj
+.\Debug\snd_dma.obj
+.\Debug\snd_mem.obj
+.\Debug\snd_mix.obj
+.\Debug\snd_win.obj
+.\Debug\sv_main.obj
+.\Debug\sv_move.obj
+.\Debug\sv_phys.obj
+.\Debug\sv_user.obj
+.\Debug\sys_win.obj
+.\Debug\vid_win.obj
+.\Debug\view.obj
+.\Debug\wad.obj
+.\Debug\world.obj
+.\Debug\zone.obj
+.\Debug\winquake.res
+.\Debug\d_draw.obj
+.\Debug\d_draw16.obj
+.\Debug\d_parta.obj
+.\Debug\d_polysa.obj
+.\Debug\d_scana.obj
+.\Debug\d_spr8.obj
+.\Debug\d_varsa.obj
+.\Debug\math.obj
+.\Debug\r_aclipa.obj
+.\Debug\r_aliasa.obj
+.\Debug\r_drawa.obj
+.\Debug\r_edgea.obj
+.\Debug\r_varsa.obj
+.\Debug\snd_mixa.obj
+.\Debug\surf16.obj
+.\Debug\surf8.obj
+.\Debug\sys_wina.obj
+.\Debug\worlda.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\DaveP\LOCALS~1\Temp\RSP54.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+cd_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cd_win.c': No such file or directory
+chase.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\chase.c': No such file or directory
+cl_demo.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cl_demo.c': No such file or directory
+cl_input.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cl_input.c': No such file or directory
+cl_main.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cl_main.c': No such file or directory
+cl_parse.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cl_parse.c': No such file or directory
+cl_tent.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cl_tent.c': No such file or directory
+cmd.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cmd.c': No such file or directory
+common.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\common.c': No such file or directory
+conproc.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\conproc.c': No such file or directory
+console.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\console.c': No such file or directory
+crc.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\crc.c': No such file or directory
+cvar.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\cvar.c': No such file or directory
+d_edge.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_edge.c': No such file or directory
+d_fill.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_fill.c': No such file or directory
+d_init.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_init.c': No such file or directory
+d_modech.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_modech.c': No such file or directory
+d_part.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_part.c': No such file or directory
+d_polyse.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_polyse.c': No such file or directory
+d_scan.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_scan.c': No such file or directory
+d_sky.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_sky.c': No such file or directory
+d_sprite.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_sprite.c': No such file or directory
+d_surf.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_surf.c': No such file or directory
+d_vars.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_vars.c': No such file or directory
+d_zpoint.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\d_zpoint.c': No such file or directory
+draw.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\draw.c': No such file or directory
+host.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\host.c': No such file or directory
+host_cmd.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\host_cmd.c': No such file or directory
+in_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\in_win.c': No such file or directory
+keys.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\keys.c': No such file or directory
+mathlib.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\mathlib.c': No such file or directory
+menu.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\menu.c': No such file or directory
+model.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\model.c': No such file or directory
+net_dgrm.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_dgrm.c': No such file or directory
+net_loop.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_loop.c': No such file or directory
+net_main.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_main.c': No such file or directory
+net_vcr.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_vcr.c': No such file or directory
+net_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_win.c': No such file or directory
+net_wins.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_wins.c': No such file or directory
+net_wipx.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\net_wipx.c': No such file or directory
+pr_cmds.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\pr_cmds.c': No such file or directory
+pr_edict.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\pr_edict.c': No such file or directory
+pr_exec.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\pr_exec.c': No such file or directory
+r_aclip.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_aclip.c': No such file or directory
+r_alias.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_alias.c': No such file or directory
+r_bsp.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_bsp.c': No such file or directory
+r_draw.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_draw.c': No such file or directory
+r_edge.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_edge.c': No such file or directory
+r_efrag.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_efrag.c': No such file or directory
+r_light.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_light.c': No such file or directory
+r_main.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_main.c': No such file or directory
+r_misc.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_misc.c': No such file or directory
+r_part.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_part.c': No such file or directory
+r_sky.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_sky.c': No such file or directory
+r_sprite.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_sprite.c': No such file or directory
+r_surf.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_surf.c': No such file or directory
+r_vars.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\r_vars.c': No such file or directory
+sbar.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sbar.c': No such file or directory
+screen.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\screen.c': No such file or directory
+snd_dma.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\snd_dma.c': No such file or directory
+snd_mem.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\snd_mem.c': No such file or directory
+snd_mix.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\snd_mix.c': No such file or directory
+snd_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\snd_win.c': No such file or directory
+sv_main.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sv_main.c': No such file or directory
+sv_move.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sv_move.c': No such file or directory
+sv_phys.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sv_phys.c': No such file or directory
+sv_user.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sv_user.c': No such file or directory
+sys_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\sys_win.c': No such file or directory
+vid_win.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\vid_win.c': No such file or directory
+view.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\view.c': No such file or directory
+wad.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\wad.c': No such file or directory
+world.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\world.c': No such file or directory
+zone.c
+fatal error C1083: Cannot open source file: 'C:\daves\quake\glesquake\quake\src\WinQuake\zone.c': No such file or directory
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+WinQuake.exe - 73 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

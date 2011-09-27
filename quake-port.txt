@@ -1,0 +1,268 @@
+Quake Porting Exercise
+----------------------
+
+
+Introduction
+------------
+
+This exercise gets you to take the Android GLES version of Quake and port
+it to Marmalade!
+
+In this directory is the Android GLES version of Quake. Aside from adding
+this text file, it is unmodified from the upstream version:
+http://code.google.com/p/glesquake/
+
+
+
+Exercise
+--------
+
+
+Let's look at the Android makefile - Android.mk
+
+It builds a native Android dynamic library from cpp source
+
+It also builds some java. How much java is there? This will define how hard this
+project is. 4 files... 20k... (in src/com/android/quake/*). We should be OK!
+
+
+The makefile uses quake/src/winQuake as a path to a load of source files. A
+good starting point! Lets put these source files into an mkb.
+
+Make an mkb which contains:
+
+files
+{
+        (quake/src/WinQuake)
+        cd_null.cpp
+        etc
+        .
+        .
+        .
+}
+
+(copy the list of files from line 38 of Android.mk downwards)
+
+Load the mkb into Visual Studio and build the x86 build.
+
+Quite a few errors! Deal with them one by one:
+
+Start with the errors in console.cpp:
+unlink, open, write, close unknown. Wrong header files? Quake
+assumes VC doesn't have unistd.h! (#ifndef _MSC_VER at the top) But it does
+under Marmalade. So include it by removing the #ifndef _MSC_VER
+
+gl_draw.cpp - unknown identifier caddr_t. Look at the code. Its using mmap
+to write files... probably not needed for normal game running? Replace the
+whole function with an assertion.
+-> add "subproject iwutil" to the mkb
+-> open quakedef.h
+-> add #include "IwDebug.h" to it somewhere, so IwTrace & IwAssert are
+available everywhere in the source
+-> replace the offending "mBase = (byte*) mmap((caddr_t..." with
+IwAssert(DEFAULT, false);
+-> gl_draw.cpp now builds, we'll find out if we needed that code when we
+run it...
+
+net_udp.cpp: error C2732: linkage specification contradicts earlier
+specification for 'htonl'. The conflicting definition is in the s3e std C
+headers. Has quake defined its own version of htonl?
+Search the quake directory for htonl... yes it has. Line 241 of net.h.
+-> Make the line 241 of net.h read
+#if !defined(_WIN32 ) && !defined(__linux__) && !defined (__sun__) && !defined (__S3E__).
+__S3E__ is the define for 'am I an Marmalade application'.
+
+quake\glesquake\quake\src\winquake\main.cpp(27) : fatal error C1083: Cannot
+open include file: 'utils/Log.h'
+Where is Log.h? It doesn't exist.
+-> If we remove the #include "utils/Log.h", #include "utils/Timers.h",
+#define ENABLE_PMP and change #include <quakedef.h> to #include "quakedef.h",
+this file builds OK (it isn't compiling anything). Lets leave it like that
+for now and see if its needed later on...
+
+c:\daves\quake\glesquake\quake\src\winquake\mastermain.cpp(25) : fatal
+error C1083: Cannot open include file: 'nativehelper/jni.h': No such
+file or directory.
+
+Look at mastermain.cpp. Its all Android-specific stuff. Lets remove it from
+the mkb for now.
+-> Put a '#' in front of mastermain.cpp in quake.mkb and rebuild the project
+(regenerates the visual studio project files)
+
+c:\daves\quake\glesquake\quake\src\winquake\snd_android.cpp(13) : fatal error
+C1083: Cannot open include file: 'utils/Log.h': No such file or directory
+This all looks android specific... but we want to keep the functions as
+stubs.
+-> Put an #ifndef __S3E__ at line 87, and a #endif at line 230. We can
+implement sound later. Remove the contents of SNDDMA_Init and make it return
+false; at the top. Now try and build the file and comment out every line
+that doesn't compile (the #include's and some other references to android
+sound stuff, etc). Basically we just need stub implementations of all the
+functions in this file.
+
+c:\daves\quake\glesquake\quake\src\winquake\sys_android.cpp(49) : fatal error
+C1083: Cannot open include file: 'utils/Log.h': No such file or directory
+
+Look at sys_android.cpp:
+If you scroll down to near the bottom, you see we have AndroidInit() and
+AndroidStep() We'll take an (educated) guess that the main loop of the game
+needs to call AndroidInit() then AndroidStep() continuously!. Make
+a main() function that does this.
+
+-> Add the following to the bottom of sys_android.cpp:
+
+int main(int argc, const char* argv)
+{
+        AndroidInit();
+        while (!s3eDeviceCheckQuitRequest())
+        {
+                AndroidStep(s3eSurfaceGetInt(S3E_SURFACE_WIDTH),
+                s3eSurfaceGetInt(S3E_SURFACE_HEIGHT));
+        }
+        AndroidQuit();
+}
+
+Now try and build sys_android.cpp:
+-> Add #include "s3eSurface.h" to the top.
+-> Remove #include <utils/Log.h>.
+Get: quake\glesquake\quake\src\winquake\sys_android.cpp(136) : error C3861:
+'LOGI': identifier not found
+-> Replace this line with IwTrace(DEFAULT, ("%s", text));
+-> Remove the #define USE_PMPEVENT from just above the function
+
+Link:
+net_dgrm.obj : error LNK2001: unresolved external symbol "int m_state"
+(?m_state@@3HA)
+
+Only one! Normally you'd have a LOT more.
+
+Search for m_state... Its a C++ linkage issue, its being defined as an enum
+in one place and used as an int in another
+-> Find the proper definition of m_state in menu.cpp
+-> Copy it into net_ngrm.cpp instead of "extern int m_state" on line 67
+(keep the 'extern' keyword)
+-> Add a (m_state_t) cast on line 1378
+
+Link successful! Is our build going to run? (Unlikely!)
+
+Get Out of Memory error. "Heap 0 out of memory..."
+Solution: set
+
+[s3e]
+Memsize=20000000
+
+in the app.icf file.
+
+Run again:
+Game exits immediately. Look in Output window... trace is working! (thanks
+to printf). You have to scrool up the view carefully until you see lines:
+Error: Could not find data directories /sdcard/data/quake or /data/quake
+Sys_Error - exiting.
+
+We need some data! We really want the app to take data from just '/' so
+search for /data/quake...
+-> Find it in sys_android.cpp. Change line 63 to
+static const char *basedir2 = "/";
+
+Now run again. It runs further and then crashes. Although its failed to find
+any files, we've got a crash in 'chkstk'. This means the application has
+run out of stack. This is something to watch out for in Marmalade apps. The
+Marmalade environment ensures the stack is the same on all platforms, and that
+the stack will run out on windows first (x86 code uses more stack), so we've
+caught a potential on-device issue here early. If we find and look in the
+COM_LoadPackFile function its creating dpackfile_t info[MAX_FILES_IN_PACK] on
+the stack. dpackfile_t is a structure about 58 bytes big, and MAX_FILES_IN_PACK
+is 2048 bytes, so thats 100k of stack being used. We can increase the stack
+size by adding:
+
+[S3E]
+SysStackSize=128000
+
+to app.icf.
+
+Now run again. This time its saying 'can't load gfx.wad' in the output
+trace. Time to give the game some data to load!
+
+Copy the contents of <mkb dir>/data_files into <mkb dir>/data, and run again
+
+We hit an assert in iwcrt (Marmalade C runtime library support) about an
+unknown socket ioctl command. Ignore it.
+
+Then.. damn! We hit the assertion we put on line 305 of gl_draw.cpp. However
+if we go up the callstack we can see this code path won't be hit if
+USE_TEXTURE_STORE isn't defined. Theory: USE_TEXTURE_STORE is being used to
+get round the Android issue of needing to store textures when you shutdown
+and restart gl during a suspend event, so we can disable it for now. find and
+remove #define USE_TEXTURE_STORE from gl_draw.cpp. We also need to comment
+out line 2111 of gl_draw.cpp.
+
+Now run again... Game exits immediately with:
+Error: glTexSubImage2D: error 0x0500 at
+c:\daves\quake\glesquake\quake\src\winquake\gl_draw.cpp:1489
+
+Why? GLES hasn't been initialised. Android initialises GLES in java so it
+can't be happening in this app! Lets use IwGL to do this rather than writing
+any egl code.
+
+Add "subproject iwgx" to quake.mkb
+
+In sys_android.cpp, add IwGLInit(); to the first line of main() (Line 665)
+
+Add #include "IwGL.h" to the top of sys_android.cpp. GX will now initialise,
+and will enable gl rendering.
+
+Run again. Game still exits immediately with the same error!
+Error: glTexSubImage2D: error 0x0500 at
+c:\daves\quake\glesquake\quake\src\winquake\gl_draw.cpp:1489
+
+Lets look at this line...  Looks like there are some #define's controlling
+texture format. Our windows GLES driver doesn't like the 444 texture
+format. Switch it to using USE_16BPP_WITH_8888_ALPHA by changing the #define
+at around line 1413 of gl_draw.cpp. Run again.
+
+Run again. "Bad player coordinates" Sys error in trace.
+
+Lets make this game a bit more debuggable and make Sys_Error do an IwError.
+
+Go to line 190 of sys_android.cpp and add IwError(("%s", string));
+
+Now run again. This time it'll stop in Sys_Error and you can use the debugger
+to diagnose the problem.
+
+If you look at the callstack, it seems that this version of quake doesn't
+like running with a horizontal resolution of less than 320. So we need
+to set the emulator up for this (ideally we'd fix it, but we can do that
+later...). Because the game will crash immediately stopping us setting
+emulator settings, hold down F5 as the emulator starts up. This prevents it
+running the game, and you can set the screen size to 320x240.
+
+It appears to be running! But we're not seeing anything. Why?
+GLES apps normally need to call eglSwapBuffers() to display the screen. But
+Android doesn't have egl, so this version won't be calling it! We
+need to add it to our main loop. We can GX to call it for us by calling
+IwGLSwapBuffers(). We must also allow Marmalade to process operating system
+events via a call to s3eDeviceYield(0). So make main() look like:
+
+int main (const char* argv, int arc)
+{
+        IwGLInit();
+        AndroidInit();
+        while (!s3eDeviceCheckQuitRequest())
+        {
+                AndroidStep(IwGLGetInt(IW_GL_WIDTH), IwGLGetInt(IW_GL_HEIGHT));
+                s3eDeviceYield(0);
+                IwGLSwapBuffers();
+        }
+        AndroidQuit();
+}
+
+And run again.
+
+Who-hoo! The game runs!
+
+Excercise 1: Add controls. Currently you can't control the game at all.
+
+Excercise 2: Add sound support. Implement snd_android.cpp using the s3eSound
+API
+
+Excercise 3: Multiplayer? Sockets should be working!
