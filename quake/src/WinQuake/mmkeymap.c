@@ -1,6 +1,9 @@
+#include <stdio.h>
+typedef int qboolean;
+#include "s3eKeyboard.h"
+#include "keys.h"
 
-
-static const int mmkeymap[] = {
+const int mmkeymap[256] = {
         [s3eKey0] = '0',
         [s3eKey1] = '1',
         [s3eKey2] = '2',

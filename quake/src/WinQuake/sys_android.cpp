@@ -666,15 +666,29 @@ void AndroidQuit() {
   soft_quit = false; // In case we live on after returning.
 }
 
+#include "s3eKeyboard.h"
+#include "mmkeymap.h"
+
+static int32 key_handler(void *sysData, void *userData)
+{
+	s3eKeyboardEvent *event = (s3eKeyboardEvent *)sysData;
+	Key_Event(mmkeymap[event->m_Key], !!event->m_Pressed);
+	return 0;
+}
+
 int main(int argc, char **argv)
 {
 	IwGLInit();
         AndroidInit();
+
+	s3eKeyboardRegister(S3E_KEYBOARD_KEY_EVENT, key_handler, NULL);
+
         while (!s3eDeviceCheckQuitRequest())
         {
                 AndroidStep(IwGLGetInt(IW_GL_WIDTH), IwGLGetInt(IW_GL_HEIGHT));
                 s3eDeviceYield(0);
                 IwGLSwapBuffers();
         }
+
         AndroidQuit();
 }

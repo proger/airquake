@@ -50,6 +50,7 @@ files {
   quake/src/WinQuake/wad.cpp
   quake/src/WinQuake/world.cpp
   quake/src/WinQuake/zone.cpp
+  quake/src/WinQuake/mmkeymap.c
 }
 
 subproject iwutil
