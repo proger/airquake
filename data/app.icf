@@ -21,4 +21,4 @@ Memsize=200000000
 SysStackSize=128000
 
 [GL]
-AllowTextureAllocInBind=1
+AllowNoDepthBufferClear=1
